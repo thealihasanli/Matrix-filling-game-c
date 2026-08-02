@@ -32,4 +32,24 @@ The project includes manual and automatic game modes, score tracking, undo funct
 Using GCC:
 
 ```bash
-gcc 21011932.c -o matrix-game
+gcc main.c -o matrix-game
+```
+
+## How to Run
+
+On Windows:
+
+```bash
+matrix-game.exe
+```
+
+On Linux or macOS:
+
+```bash
+./matrix-game
+```
+
+## Author
+
+**Ali Hasanli**  
+Computer Engineering Student
