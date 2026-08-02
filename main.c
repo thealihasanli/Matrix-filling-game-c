@@ -16,7 +16,7 @@ void automatically2(); // Dosya Matris Otomatik Doldur
 void drawBoard(int matris[][MAX_DOSYA], int N); // Dosya Matris Icin fonksiyon
 void readFromFile(int matris[][MAX_DOSYA], char *fileName); // Dosya Matris Icin fonksiyon
 void fill(int matris[][MAX_DOSYA], int previous_matris[][MAX_DOSYA], int *score); // Dosya Matris Icin fonksiyon
-void fillOut(int matris[][MAX_DOSYA], int N); // // Dosya Matris Icin Otomatik Doldurma için fonksiyon
+void fillOut(int matris[][MAX_DOSYA], int N); // // Dosya Matris Icin Otomatik Doldurma iÃ§in fonksiyon
 void undo(int matris[][MAX_DOSYA], int previous_matris[][MAX_DOSYA], int *score); // Dosya Matris Icin fonksiyon
 int gameOver(const int matris[][MAX_DOSYA], int N); // Dosya Matris Icin fonksiyon
 void addPlayer(Player players[], int *playerCount, char *name, int score); // Dosya Matris Icin fonksiyon
@@ -112,8 +112,8 @@ int main() {
                           
                         else if (choice == 2) {
                           
-                          copy_matrix(last_matrix, matrix, n); // last_matrix durumuna geri dön
-                          score -= 10; // Skordan 10 puan çikart
+                          copy_matrix(last_matrix, matrix, n); // last_matrix durumuna geri dÃ¶n
+                          score -= 10; // Skordan 10 puan Ã§ikart
                           print_matrix(matrix, n);
                           
                         }
@@ -134,7 +134,7 @@ int main() {
                           
                         else {
                           
-                         printf("\nGeçersiz Secim Yaptiniz, Lutfen tekrar secim yapiniz.");
+                         printf("\nGeÃ§ersiz Secim Yaptiniz, Lutfen tekrar secim yapiniz.");
                           
                         }
                         } 
@@ -252,9 +252,9 @@ int main() {
     }
 
 void create_random_matrix(int matrix[MAX_RANDOM][MAX_RANDOM], int n) {
-    srand(time(0)); // Rastgele sayi üreteciyi baslat
+    srand(time(0)); // Rastgele sayi Ã¼reteciyi baslat
 
-    int num_count[MAX_RANDOM+1]; // Her sayinin kaç kez kullanildigi tutmak için bir dizi
+    int num_count[MAX_RANDOM+1]; // Her sayinin kaÃ§ kez kullanildigi tutmak iÃ§in bir dizi
 
     // Diziyi sifirla
     int i,j;
@@ -398,11 +398,11 @@ int is_matrix_filled(const int matrix[MAX_RANDOM][MAX_RANDOM], int n) {
     for ( i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
             if (matrix[i][j] == 0) {
-                return 0; // Matris hala bo? hücreler içeriyorsa, 0 döndür
+                return 0; // Matris hala bo? hÃ¼creler iÃ§eriyorsa, 0 dÃ¶ndÃ¼r
             }
         }
     }
-    return 1; // Tüm hücreler doluysa, 1 döndür
+    return 1; // TÃ¼m hÃ¼creler doluysa, 1 dÃ¶ndÃ¼r
 }
 
 void displayPlayerScores(Player players[], int playerCount) { // Oyuncularin Skor Tablosu
@@ -500,7 +500,7 @@ void fill(int matris[][MAX_DOSYA], int previous_matris[][MAX_DOSYA], int *score)
         return;
     }
     number = matris[row][col];
-    copyMatrix(matris, previous_matris); // doldurmadan önceki durumu kaydet
+    copyMatrix(matris, previous_matris); // doldurmadan Ã¶nceki durumu kaydet
     for ( i = row; i <= row_dir; i++){
         for ( j = col; j <= col_dir; j++){
             if(matris[i][j] == 0) {
@@ -513,8 +513,8 @@ void fill(int matris[][MAX_DOSYA], int previous_matris[][MAX_DOSYA], int *score)
 }
 
 void undo(int matris[][MAX_DOSYA], int previous_matris[][MAX_DOSYA], int *score) {
-    copyMatrix(previous_matris, matris); // önceki durumu geri yükle
-    *score -= 10; // Geri al Puan Kýrýlmasý
+    copyMatrix(previous_matris, matris); // Ã¶nceki durumu geri yÃ¼kle
+    *score -= 10; // Geri al Puan KÃ½rÃ½lmasÃ½
     if (*score < 0) *score = 0; 
 }
 
@@ -524,11 +524,11 @@ int gameOver(const int matris[][MAX_DOSYA], int N){
     for ( i = 0; i < N; i++) {
         for (j = 0; j < N; j++) {
             if (matris[i][j] == 0) {
-                return 0; // Matris hala bos kordinatlar içeriyorsa, 0 döndür
+                return 0; // Matris hala bos kordinatlar iÃ§eriyorsa, 0 dÃ¶ndÃ¼r
             }
         }
     }
-    return 1; // Tüm hücreler doluysa, 1 döndür
+    return 1; // TÃ¼m hÃ¼creler doluysa, 1 dÃ¶ndÃ¼r
 }
 
 void fill_empty_cells(int n, int matrix[MAX_RANDOM][MAX_RANDOM]) {
